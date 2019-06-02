@@ -34,6 +34,10 @@ const goToAuth = () => {
           {
             component: {
               name: SIGNIN_SCREEN,
+              passProps: {
+                // eslint-disable-next-line no-use-before-define
+                goToHome: () => goToHome(),
+              },
               options: {
                 bottomTab: {
                   fontSize: 12,
@@ -47,6 +51,10 @@ const goToAuth = () => {
           {
             component: {
               name: SIGNUP_SCREEN,
+              passProps: {
+                // eslint-disable-next-line no-use-before-define
+                goToHome: () => goToHome(),
+              },
               options: {
                 bottomTab: {
                   fontSize: 12,
@@ -67,9 +75,10 @@ const goToHome = () => {
   return Navigation.setRoot({
     root: {
       stack: {
-        id: 'App',
+        id: 'Home',
         options: {
           topBar: {
+            title: 'Home',
             visible: false,
           },
         },
@@ -77,6 +86,9 @@ const goToHome = () => {
           {
             component: {
               name: HOME_SCREEN,
+              passProps: {
+                goToAuth: () => goToAuth(),
+              },
             },
           },
         ],

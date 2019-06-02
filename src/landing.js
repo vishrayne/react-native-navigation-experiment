@@ -1,3 +1,6 @@
+// @format
+// @flow
+
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
