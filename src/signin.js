@@ -33,7 +33,7 @@ type SignInState = {
   password: string,
 };
 export default class SignIn extends Component<SignInProps, SignInState> {
-  state = {
+  state: SignInState = {
     username: '',
     password: '',
   };

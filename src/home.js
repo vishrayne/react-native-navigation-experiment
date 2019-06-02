@@ -24,7 +24,7 @@ type HomeState = {
   username: string,
 };
 export default class Home extends Component<HomeProps, HomeState> {
-  state = {
+  state: HomeState = {
     username: '',
   };
 
@@ -48,10 +48,10 @@ export default class Home extends Component<HomeProps, HomeState> {
   };
 
   render() {
-    // const { username } = this.state;
+    const { username } = this.state;
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Hello {this.state.username}!</Text>
+        <Text style={styles.welcome}>Hello {username}!</Text>
         <Button onPress={this.logoutAsync} title="Sign Out" />
       </View>
     );
