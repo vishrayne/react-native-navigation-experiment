@@ -4,8 +4,8 @@
 import React, { Component } from 'react';
 import { NavigatorProp } from 'react-native-navigation';
 import { View, Text, Button, StyleSheet } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
-import { USER_KEY } from './config';
+import Logger from './utils/logger';
+import AsyncCache from './utils/async-cache';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -32,20 +32,22 @@ export default class Home extends Component<HomeProps, HomeState> {
 
   async componentDidMount() {
     try {
-      const user = await AsyncStorage.getItem(USER_KEY);
+      Logger.info('component mount');
+      const user = await AsyncCache.getUser();
+      Logger.info('component mount: ', user);
       this.setState({ username: user });
     } catch (err) {
-      console.error('unexpected error!', err);
+      Logger.error('unexpected error!', err);
     }
   }
 
   logoutAsync = async () => {
     const { goToAuth } = this.props;
     try {
-      await AsyncStorage.removeItem(USER_KEY);
+      await AsyncCache.removeUser;
       goToAuth();
     } catch (err) {
-      console.error('Unexpected error!, ', err);
+      Logger.error('Unexpected error!, ', err);
     }
   };
 

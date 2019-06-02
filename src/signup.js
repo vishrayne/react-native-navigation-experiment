@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
+import Logger from './utils/logger';
 
 const styles = StyleSheet.create({
   input: {
@@ -41,7 +42,7 @@ export default class SignUp extends Component<SignUpProps> {
 
   signUp = async () => {
     const { username, password, email, phoneNumber } = this.state;
-    console.log('Registering user: ', username, password, email, phoneNumber);
+    Logger.info('Registering user: ', username, password, email, phoneNumber);
     // rest of the signup logic
   };
 

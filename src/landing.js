@@ -3,8 +3,8 @@
 
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
-import { USER_KEY } from './config';
+import Logger from './utils/logger';
+import AsyncCache from './utils/async-cache';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -23,17 +23,17 @@ type LandingProps = {
 };
 export default class Landing extends Component<LandingProps> {
   async componentDidMount() {
-    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-Logger
     const { goToHome, goToAuth } = this.props;
     try {
-      const user = await AsyncStorage.getItem(USER_KEY);
+      const user = await AsyncCache.getUser();
       if (user) {
         goToHome();
       } else {
         goToAuth();
       }
     } catch (err) {
-      console.error('user auth error', err);
+      Logger.error('user auth error', err);
       goToAuth();
     }
   }

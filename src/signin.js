@@ -3,8 +3,8 @@
 
 import React, { Component } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
-import { USER_KEY } from './config';
+import Logger from './utils/logger';
+import AsyncCache from './utils/async-cache';
 
 const styles = StyleSheet.create({
   input: {
@@ -47,16 +47,16 @@ export default class SignIn extends Component<SignInProps, SignInState> {
     const { goToHome } = this.props;
 
     if (password !== 'password') {
-      console.error('Invalid password! Use a strong `password` ;)');
+      Logger.error('Invalid password! Use a strong `password` ;)');
       return;
     }
 
     try {
-      const user = await AsyncStorage.setItem(USER_KEY, username);
-      console.log('successful login: ', user);
+      const user = await AsyncCache.setUser(username);
+      Logger.info('successful login: ', user);
       goToHome();
     } catch (err) {
-      console.error('Unexpected error: ', err);
+      Logger.error('Unexpected error: ', err);
     }
   };
 
