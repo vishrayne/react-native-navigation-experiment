@@ -2,6 +2,7 @@
 // @flow
 
 import React, { Component } from 'react';
+import { NavigatorProp } from 'react-native-navigation';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { USER_KEY } from './config';
@@ -17,8 +18,9 @@ const styles = StyleSheet.create({
   },
 });
 
-type HomeProps = {
+type HomeProps = NavigatorProp & {
   goToAuth: () => void,
+  goToScreen2: (componentID: number) => void,
 };
 type HomeState = {
   username: string,
@@ -47,12 +49,19 @@ export default class Home extends Component<HomeProps, HomeState> {
     }
   };
 
+  goToDetails = (componentID: number) => {
+    const { goToScreen2 } = this.props;
+    goToScreen2(componentID);
+  };
+
   render() {
     const { username } = this.state;
+    const { componentId } = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Hello {username}!</Text>
         <Button onPress={this.logoutAsync} title="Sign Out" />
+        <Button onPress={() => this.goToDetails(componentId)} title="View Details" />
       </View>
     );
   }

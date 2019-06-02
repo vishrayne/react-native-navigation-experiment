@@ -25,6 +25,21 @@ Screens.set(SIGNIN_SCREEN, SignIn);
 Screens.set(SIGNUP_SCREEN, SignUp);
 Screens.set(SCREEN2_SCREEN, Screen2);
 
+const goBack = (parentComponentID: number) => {
+  Navigation.pop(parentComponentID);
+};
+
+const goToScreen2 = (parentComponentID: number) => {
+  Navigation.push(parentComponentID, {
+    component: {
+      name: SCREEN2_SCREEN,
+      passProps: {
+        goBack: (componentID: number) => goBack(componentID),
+      },
+    },
+  });
+};
+
 const goToAuth = () => {
   Navigation.setRoot({
     root: {
@@ -78,8 +93,9 @@ const goToHome = () => {
         id: 'Home',
         options: {
           topBar: {
-            title: 'Home',
-            visible: false,
+            title: {
+              text: 'Home',
+            },
           },
         },
         children: [
@@ -88,6 +104,7 @@ const goToHome = () => {
               name: HOME_SCREEN,
               passProps: {
                 goToAuth: () => goToAuth(),
+                goToScreen2: (componentID: number) => goToScreen2(componentID),
               },
             },
           },
