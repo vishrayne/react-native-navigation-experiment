@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 type Screen2Props = NavigatorProp & {
   goBack: (componentID: number) => void,
 };
-export default class Screen2 extends Component<Screen2Props> {
+export default class Details extends Component<Screen2Props> {
   static get options() {
     return {
       topBar: {

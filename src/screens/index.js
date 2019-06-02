@@ -8,14 +8,14 @@ import Home from './home';
 import Landing from './landing';
 import SignIn from './signin';
 import SignUp from './signup';
-import Screen2 from './screen2';
+import Details from './home-detail';
 
 export const DUMMY_SCREEN = 'rnnav2.DUMMY';
 export const HOME_SCREEN = 'rnnav2.HOME';
 export const LANDING_SCREEN = 'rnnav2.LANDING';
 export const SIGNIN_SCREEN = 'rnnav2.SIGNIN';
 export const SIGNUP_SCREEN = 'rnnav2.SIGNUP';
-export const SCREEN2_SCREEN = 'rnnav2.SCREEN2';
+export const DETAILS_SCREEN = 'rnnav2.DETAILS';
 
 // eslint-disable-next-line prettier/prettier
 export const Screens = new Map<string, any>();
@@ -23,7 +23,7 @@ Screens.set(HOME_SCREEN, Home);
 Screens.set(LANDING_SCREEN, Landing);
 Screens.set(SIGNIN_SCREEN, SignIn);
 Screens.set(SIGNUP_SCREEN, SignUp);
-Screens.set(SCREEN2_SCREEN, Screen2);
+Screens.set(DETAILS_SCREEN, Details);
 
 const goBack = (parentComponentID: number) => {
   Navigation.pop(parentComponentID);
@@ -32,7 +32,7 @@ const goBack = (parentComponentID: number) => {
 const goToScreen2 = (parentComponentID: number) => {
   Navigation.push(parentComponentID, {
     component: {
-      name: SCREEN2_SCREEN,
+      name: DETAILS_SCREEN,
       passProps: {
         goBack: (componentID: number) => goBack(componentID),
       },
