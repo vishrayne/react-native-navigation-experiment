@@ -58,7 +58,7 @@ const goToAuth = () => {
                   fontSize: 12,
                   text: 'Sign In',
                   // eslint-disable-next-line global-require
-                  icon: require('./assets/outline_lock_open_black_18dp.png'),
+                  icon: require('../assets/outline_lock_open_black_18dp.png'),
                 },
               },
             },
@@ -75,7 +75,7 @@ const goToAuth = () => {
                   fontSize: 12,
                   text: 'Sign Up',
                   // eslint-disable-next-line global-require
-                  icon: require('./assets/outline_person_add_black_18dp.png'),
+                  icon: require('../assets/outline_person_add_black_18dp.png'),
                 },
               },
             },

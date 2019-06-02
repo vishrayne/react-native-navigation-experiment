@@ -3,8 +3,8 @@
 
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Logger from './utils/logger';
-import AsyncCache from './utils/async-cache';
+import Logger from '../utils/logger';
+import AsyncCache from '../utils/async-cache';
 
 const styles = StyleSheet.create({
   welcome: {

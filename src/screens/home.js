@@ -4,8 +4,8 @@
 import React, { Component } from 'react';
 import { NavigatorProp } from 'react-native-navigation';
 import { View, Text, Button, StyleSheet } from 'react-native';
-import Logger from './utils/logger';
-import AsyncCache from './utils/async-cache';
+import Logger from '../utils/logger';
+import AsyncCache from '../utils/async-cache';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -44,7 +44,7 @@ export default class Home extends Component<HomeProps, HomeState> {
   logoutAsync = async () => {
     const { goToAuth } = this.props;
     try {
-      await AsyncCache.removeUser;
+      await AsyncCache.removeUser();
       goToAuth();
     } catch (err) {
       Logger.error('Unexpected error!, ', err);

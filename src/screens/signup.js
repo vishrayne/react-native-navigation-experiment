@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
-import Logger from './utils/logger';
+import Logger from '../utils/logger';
 
 const styles = StyleSheet.create({
   input: {
@@ -26,14 +26,14 @@ type SignUpState = {
   username: string,
   password: string,
   email: string,
-  phoneNumber: string,
+  phone_number: string,
 };
 export default class SignUp extends Component<SignUpProps> {
   state: SignUpState = {
     username: '',
     password: '',
     email: '',
-    phoneNumber: '',
+    phone_number: '',
   };
 
   onChangeText = (key: String, value: string) => {
@@ -41,8 +41,9 @@ export default class SignUp extends Component<SignUpProps> {
   };
 
   signUp = async () => {
-    const { username, password, email, phoneNumber } = this.state;
-    Logger.info('Registering user: ', username, password, email, phoneNumber);
+    // eslint-disable-next-line camelcase
+    const { username, password, email, phone_number } = this.state;
+    Logger.info('Registering user: ', username, password, email, phone_number);
     // rest of the signup logic
   };
 
