@@ -11,6 +11,13 @@ Landing ->(is_valid_user?)--
 - react-native-navigation
 - @react-native-community/async-storage
 
+### TODO
+- [x] Bottom Tab
+- [x] Stack Navigation - Push|Pop
+- [] Navigation Drawer
+- [] Navigation from list item.
+- [] Jest
+
 ### IMPORTANT
 - Tested only on Android (For iOS, manually link native-navigation and async-storage libraries)
 - Since I'm using native-navigation instead of the traditional navigation library, `react-native link <xyz-framework>` won't work as expected. You will have to manually link those dependencies 
