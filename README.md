@@ -14,9 +14,9 @@ Landing ->(is_valid_user?)--
 ### TODO
 - [x] Bottom Tab
 - [x] Stack Navigation - Push|Pop
-- [] Navigation Drawer
-- [] Navigation from list item.
-- [] Jest
+- [ ] Navigation Drawer
+- [ ] Navigation from list item.
+- [ ] Jest
 
 ### IMPORTANT
 - Tested only on Android (For iOS, manually link native-navigation and async-storage libraries)
