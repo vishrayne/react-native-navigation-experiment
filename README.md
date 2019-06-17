@@ -1,4 +1,4 @@
-# react-native-navigation
+# react-native-navigation-experiment
 Sample application to try out [react-native-navigation](https://wix.github.io/react-native-navigation/#/) library based on [this article](https://medium.com/react-native-training/react-native-navigation-v2-by-wix-getting-started-7d647e944132)
 
 ### Architecture
