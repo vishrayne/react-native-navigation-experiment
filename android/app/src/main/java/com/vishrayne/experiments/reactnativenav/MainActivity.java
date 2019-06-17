@@ -1,4 +1,4 @@
-package com.rnnav2;
+package com.vishrayne.experiments.reactnativenav;
 
 import com.reactnativenavigation.NavigationActivity;
 
